@@ -6,6 +6,10 @@ EasyDemo.Droid.MainActivity, EasyDemo.Android;md523ce9f7af8d5ac64d060954ba7a8501
 EasyDemo.Droid.MainActivity, EasyDemo.Android, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md523ce9f7af8d5ac64d060954ba7a8501b.MainActivity
 EasyDemo.Droid.MainActivity;md523ce9f7af8d5ac64d060954ba7a8501b.MainActivity
 easydemo.droid.MainActivity;md523ce9f7af8d5ac64d060954ba7a8501b.MainActivity
+EasyDemo.Droid.Helper.Connection, EasyDemo.Android;md58fbdce9fee45c7ed92821625a3e5ee8e.Connection
+EasyDemo.Droid.Helper.Connection, EasyDemo.Android, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md58fbdce9fee45c7ed92821625a3e5ee8e.Connection
+EasyDemo.Droid.Helper.Connection;md58fbdce9fee45c7ed92821625a3e5ee8e.Connection
+easydemo.droid.helper.Connection;md58fbdce9fee45c7ed92821625a3e5ee8e.Connection
 Android.Support.Design.Widget.Snackbar/SnackbarActionClickImplementor, Xamarin.Android.Support.Design;android.support.design.widget.Snackbar_SnackbarActionClickImplementor
 Android.Support.Design.Widget.Snackbar+SnackbarActionClickImplementor, Xamarin.Android.Support.Design, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;android.support.design.widget.Snackbar_SnackbarActionClickImplementor
 Android.Support.Design.Widget.Snackbar.SnackbarActionClickImplementor;android.support.design.widget.Snackbar_SnackbarActionClickImplementor
