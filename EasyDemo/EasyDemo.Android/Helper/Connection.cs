@@ -40,5 +40,18 @@ namespace EasyDemo.Droid.Helper
             OnCreate(db);
 
         }
+
+        public void addDatos(String username, String status) {
+            ContentValues valusers = new ContentValues();
+            valusers.Put(USERNAME,username);
+            valusers.Put(PASSWORD,"123");
+            valusers.Put(STATUS,status);
+            this.WritableDatabase.Insert(TABLE_USERS,null,valusers);
+        }
+        public ICursor getDatos() {
+            string[] columns = { ID, USERNAME, STATUS };
+            ICursor c = this.ReadableDatabase.Query(TABLE_USERS,columns,null,null,null,null,null);
+            return c;
+        }
     }
 }
