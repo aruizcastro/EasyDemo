@@ -11,12 +11,11 @@
         android:layout_height="wrap_content"
         android:id="@+id/lblLogin" />
     <EditText
-        
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/txtUsername" />
     <EditText
-      android:inputType="textPassword"
+        android:inputType="textPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/txtPassword" />

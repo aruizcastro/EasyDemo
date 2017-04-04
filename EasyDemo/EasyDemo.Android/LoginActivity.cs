@@ -5,6 +5,7 @@ using Android.Database;
 using Android.OS;
 using Android.Widget;
 using EasyDemo.Droid.Helper;
+using System;
 
 namespace EasyDemo.Droid
 {
@@ -14,6 +15,7 @@ namespace EasyDemo.Droid
         Button btnLogin;
         EditText txtUsername;
         Connection db;
+        string conn = "";
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -27,7 +29,9 @@ namespace EasyDemo.Droid
             btnLogin.Click += delegate
             {
                 var mainActivity = new Intent(this, typeof(MainActivity));
-                mainActivity.PutExtra("MyData", txtUsername.Text);
+                addData();
+                showDatos();
+                mainActivity.PutExtra("MyData", conn);
                 StartActivity(mainActivity);
             };
 
@@ -47,12 +51,14 @@ namespace EasyDemo.Droid
             string statusu = "";
             ICursor c = db.getDatos();
             if (c.MoveToFirst() == false) {
-
+                Console.WriteLine("No dont move to first:");
             }else
             {
                 do {
                     usern = c.GetString(1);
-                    statusu = c.GetString(3);
+                    statusu = c.GetString(2);
+                    conn = statusu;
+                    Console.WriteLine("get string pos 3, userstatus:");
                 } while (c.MoveToNext());
             }
         }

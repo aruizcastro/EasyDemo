@@ -11,21 +11,28 @@ using Android.Content;
 namespace EasyDemo.Droid
 {
     [Activity(Label = "EasyDemo", Icon = "@drawable/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
-    public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
+    public class MainActivity : Activity
     {
+        TextView lblTitle;
         protected override void OnCreate(Bundle bundle)
         {
-            TabLayoutResource = Resource.Layout.Tabbar;
-            ToolbarResource = Resource.Layout.Toolbar;
-
+            //TabLayoutResource = Resource.Layout.Tabbar;
+            //ToolbarResource = Resource.Layout.Toolbar;
+            lblTitle = FindViewById<TextView>(Resource.Id.lblTitle);
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.Main);
-
-            var loginActivity = new Intent(this, typeof(LoginActivity));
-            StartActivity(loginActivity);
-
-            global::Xamarin.Forms.Forms.Init(this, bundle);
-            LoadApplication(new App());
+            string userstatus = Intent.GetStringExtra("MyData");
+            if (userstatus == null)
+            {
+                var loginActivity = new Intent(this, typeof(LoginActivity));
+                StartActivity(loginActivity);
+            }
+            else
+            {
+                //lblTitle.Text = userstatus;
+                Console.WriteLine("user variable"+userstatus);
+            }
+            
         }
     }
 }
