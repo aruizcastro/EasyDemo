@@ -25,10 +25,17 @@ C:\xamarin\EasyDemo\EasyDemo\EasyDemo\bin\Debug\Xamarin.Forms.Core.xml
 C:\xamarin\EasyDemo\EasyDemo\EasyDemo\bin\Debug\Xamarin.Forms.Platform.pdb
 C:\xamarin\EasyDemo\EasyDemo\EasyDemo\bin\Debug\Xamarin.Forms.Xaml.pdb
 C:\xamarin\EasyDemo\EasyDemo\EasyDemo\bin\Debug\Xamarin.Forms.Xaml.xml
+C:\xamarin\EasyDemo\EasyDemo\EasyDemo\obj\Debug\EasyDemo.csprojResolveAssemblyReference.cache
 C:\xamarin\EasyDemo\EasyDemo\EasyDemo\obj\Debug\EasyDemo.MainPage.xaml.g.cs
 C:\xamarin\EasyDemo\EasyDemo\EasyDemo\obj\Debug\EasyDemo.App.xaml.g.cs
 C:\xamarin\EasyDemo\EasyDemo\EasyDemo\obj\Debug\EasyDemo.dll
 C:\xamarin\EasyDemo\EasyDemo\EasyDemo\obj\Debug\EasyDemo.pdb
+C:\xamarin\EasyDemo\EasyDemo\EasyDemo\obj\Debug\EasyDemo.dll.mdb
+C:\xamarin\EasyDemo\EasyDemo\EasyDemo\bin\Debug\EasyDemo.dll.mdb
+C:\xamarin\EasyDemo\EasyDemo\EasyDemo\obj\Debug\EasyDemo.dll.mdb
+C:\xamarin\EasyDemo\EasyDemo\EasyDemo\bin\Debug\EasyDemo.dll.mdb
+C:\xamarin\EasyDemo\EasyDemo\EasyDemo\obj\Debug\EasyDemo.dll.mdb
+C:\xamarin\EasyDemo\EasyDemo\EasyDemo\bin\Debug\EasyDemo.dll.mdb
 C:\xamarin\EasyDemo\EasyDemo\EasyDemo\obj\Debug\EasyDemo.dll.mdb
 C:\xamarin\EasyDemo\EasyDemo\EasyDemo\bin\Debug\EasyDemo.dll.mdb
 C:\xamarin\EasyDemo\EasyDemo\EasyDemo\obj\Debug\EasyDemo.dll.mdb

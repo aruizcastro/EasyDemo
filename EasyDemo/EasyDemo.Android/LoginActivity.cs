@@ -58,7 +58,7 @@ namespace EasyDemo.Droid
                     usern = c.GetString(1);
                     statusu = c.GetString(2);
                     conn = statusu;
-                    Console.WriteLine("get string pos 3, userstatus:");
+                    Console.WriteLine("get string pos 3, userstatus:"+ statusu);
                 } while (c.MoveToNext());
             }
         }

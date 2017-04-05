@@ -18,9 +18,10 @@ namespace EasyDemo.Droid
         {
             //TabLayoutResource = Resource.Layout.Tabbar;
             //ToolbarResource = Resource.Layout.Toolbar;
-            lblTitle = FindViewById<TextView>(Resource.Id.lblTitle);
+            
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.Main);
+            lblTitle = FindViewById<TextView>(Resource.Id.lblTitle);
             string userstatus = Intent.GetStringExtra("MyData");
             if (userstatus == null)
             {
@@ -29,7 +30,7 @@ namespace EasyDemo.Droid
             }
             else
             {
-                //lblTitle.Text = userstatus;
+                lblTitle.Text = "User: "+userstatus;
                 Console.WriteLine("user variable"+userstatus);
             }
             
