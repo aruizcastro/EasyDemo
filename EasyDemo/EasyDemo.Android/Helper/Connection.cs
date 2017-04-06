@@ -50,7 +50,7 @@ namespace EasyDemo.Droid.Helper
         }
         public ICursor getDatos() {
             string[] columns = { ID, USERNAME, STATUS };
-            ICursor c = this.ReadableDatabase.Query(TABLE_USERS,columns,null,null,null,null,null);
+            ICursor c = this.ReadableDatabase.Query(TABLE_USERS,columns,"id>0 limit 1",null,null,null,null);
             return c;
         }
     }

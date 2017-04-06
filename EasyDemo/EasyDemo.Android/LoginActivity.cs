@@ -16,6 +16,7 @@ namespace EasyDemo.Droid
         EditText txtUsername;
         Connection db;
         string conn = "";
+        string usr = "";
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -31,7 +32,8 @@ namespace EasyDemo.Droid
                 var mainActivity = new Intent(this, typeof(MainActivity));
                 addData();
                 showDatos();
-                mainActivity.PutExtra("MyData", conn);
+                mainActivity.PutExtra("status", conn);
+                mainActivity.PutExtra("username", usr);
                 StartActivity(mainActivity);
             };
 
@@ -58,6 +60,7 @@ namespace EasyDemo.Droid
                     usern = c.GetString(1);
                     statusu = c.GetString(2);
                     conn = statusu;
+                    usr = usern;
                     Console.WriteLine("get string pos 3, userstatus:"+ statusu);
                 } while (c.MoveToNext());
             }

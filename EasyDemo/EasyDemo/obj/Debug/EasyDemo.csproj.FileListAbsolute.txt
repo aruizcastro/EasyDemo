@@ -40,3 +40,13 @@ C:\xamarin\EasyDemo\EasyDemo\EasyDemo\obj\Debug\EasyDemo.dll.mdb
 C:\xamarin\EasyDemo\EasyDemo\EasyDemo\bin\Debug\EasyDemo.dll.mdb
 C:\xamarin\EasyDemo\EasyDemo\EasyDemo\obj\Debug\EasyDemo.dll.mdb
 C:\xamarin\EasyDemo\EasyDemo\EasyDemo\bin\Debug\EasyDemo.dll.mdb
+C:\xamarin\EasyDemo\EasyDemo\EasyDemo\obj\Debug\EasyDemo.dll.mdb
+C:\xamarin\EasyDemo\EasyDemo\EasyDemo\bin\Debug\EasyDemo.dll.mdb
+C:\xamarin\EasyDemo\EasyDemo\EasyDemo\obj\Debug\EasyDemo.dll.mdb
+C:\xamarin\EasyDemo\EasyDemo\EasyDemo\bin\Debug\EasyDemo.dll.mdb
+C:\xamarin\EasyDemo\EasyDemo\EasyDemo\obj\Debug\EasyDemo.dll.mdb
+C:\xamarin\EasyDemo\EasyDemo\EasyDemo\bin\Debug\EasyDemo.dll.mdb
+C:\xamarin\EasyDemo\EasyDemo\EasyDemo\obj\Debug\EasyDemo.dll.mdb
+C:\xamarin\EasyDemo\EasyDemo\EasyDemo\bin\Debug\EasyDemo.dll.mdb
+C:\xamarin\EasyDemo\EasyDemo\EasyDemo\obj\Debug\EasyDemo.dll.mdb
+C:\xamarin\EasyDemo\EasyDemo\EasyDemo\bin\Debug\EasyDemo.dll.mdb

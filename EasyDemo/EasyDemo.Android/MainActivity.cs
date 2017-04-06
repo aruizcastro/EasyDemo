@@ -22,7 +22,8 @@ namespace EasyDemo.Droid
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.Main);
             lblTitle = FindViewById<TextView>(Resource.Id.lblTitle);
-            string userstatus = Intent.GetStringExtra("MyData");
+            string userstatus = Intent.GetStringExtra("status");
+            string username = Intent.GetStringExtra("username");
             if (userstatus == null)
             {
                 var loginActivity = new Intent(this, typeof(LoginActivity));
@@ -30,7 +31,7 @@ namespace EasyDemo.Droid
             }
             else
             {
-                lblTitle.Text = "User: "+userstatus;
+                lblTitle.Text = "User: "+username;
                 Console.WriteLine("user variable"+userstatus);
             }
             
