@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1054531745978",
+    "firebase_url": "https://easydemo-e4c9c.firebaseio.com",
+    "project_id": "easydemo-e4c9c",
+    "storage_bucket": "easydemo-e4c9c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1054531745978:android:7864ccba7a07b5ce",
+        "android_client_info": {
+          "package_name": "EasyDemo.EasyDemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1054531745978-3ucid19ol6sqng7svm78btggc8j1i6ck.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "EasyDemo.EasyDemo",
+            "certificate_hash": "dbe90f8c2023669660e100dbd577199aee4a14b7"
+          }
+        },
+        {
+          "client_id": "1054531745978-tnvhrcjm2sf4r049agu5lb05rvt249n8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNGUgvssDSz8_obUwSpBqbZn_U1MNabUg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1054531745978-tnvhrcjm2sf4r049agu5lb05rvt249n8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
