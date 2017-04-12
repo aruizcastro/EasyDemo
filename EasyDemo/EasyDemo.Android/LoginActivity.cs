@@ -6,12 +6,34 @@ using Android.OS;
 using Android.Widget;
 using EasyDemo.Droid.Helper;
 using System;
+using Firebase;
+using Firebase.Iid;
+using Android.Views;
+using Android.Support.V4.App;
+using Android.Gms.Common.Apis;
+using Android.Gms.Tasks;
+using Firebase.Auth;
+using Android.Gms.Common;
 
 namespace EasyDemo.Droid
 {
     [Activity(Label = "LoginActivity")]
-    public class LoginActivity : Activity
+    public class LoginActivity : FragmentActivity, GoogleApiClient.IOnConnectionFailedListener,
+        View.IOnClickListener, IOnCompleteListener, FirebaseAuth.IAuthStateListener
     {
+        private const string Tag = "GoogleLogin";
+        private const int RcSignIn = 9001;
+
+        #region View Controls
+#pragma warning disable 649
+        private Button btnSignIn, btnSignOut, btnRevokeAccess;
+        private TextView textViewStatus, textViewDetail;
+#pragma warning restore 649
+        #endregion
+
+        private FirebaseAuth mAuth;
+        private GoogleApiClient mGoogleApiClient;
+        
         Button btnLogin;
         EditText txtUsername;
         Connection db;
@@ -22,6 +44,13 @@ namespace EasyDemo.Droid
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Login);
+            // Call to "wire up" all our controls autoamticlly
+            //this.WireUpViews();
+            btnSignIn.SetOnClickListener(this);
+            btnSignOut.SetOnClickListener(this);
+            btnRevokeAccess.SetOnClickListener(this);
+
+
             btnLogin = FindViewById<Button>(Resource.Id.btnLogin);
             txtUsername = FindViewById<EditText>(Resource.Id.txtUsername);
             db = new Connection(this);
@@ -41,6 +70,7 @@ namespace EasyDemo.Droid
             // Create your application here
         }
 
+    
         private void addData()
         {
             string username = txtUsername.Text;
@@ -66,5 +96,24 @@ namespace EasyDemo.Droid
             }
         }
 
+        public void OnClick(View v)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnComplete(Task task)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnAuthStateChanged(FirebaseAuth auth)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnConnectionFailed(ConnectionResult result)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
