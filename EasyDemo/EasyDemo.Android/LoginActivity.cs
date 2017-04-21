@@ -7,13 +7,16 @@ using Android.Widget;
 using EasyDemo.Droid.Helper;
 using System;
 using Firebase;
-using Firebase.Iid;
 using Android.Views;
 using Android.Support.V4.App;
 using Android.Gms.Common.Apis;
 using Android.Gms.Tasks;
 using Firebase.Auth;
 using Android.Gms.Common;
+using Android.Gms.Auth.Api;
+using Android.Gms.Auth.Api.SignIn;
+using Android.Util;
+using System.Diagnostics;
 
 namespace EasyDemo.Droid
 {
@@ -46,10 +49,39 @@ namespace EasyDemo.Droid
             SetContentView(Resource.Layout.Login);
             // Call to "wire up" all our controls autoamticlly
             //this.WireUpViews();
+            btnSignIn = FindViewById<Button>(Resource.Id.btnSignIn);
+            btnSignOut = FindViewById<Button>(Resource.Id.btnSignOut);
+            btnRevokeAccess = FindViewById< Button > (Resource.Id.btnRevokeAccess);
+
             btnSignIn.SetOnClickListener(this);
             btnSignOut.SetOnClickListener(this);
             btnRevokeAccess.SetOnClickListener(this);
 
+            /*----------firebase ---------*/
+            // Setup our firebase options then init
+            FirebaseOptions o = new FirebaseOptions.Builder()
+                .SetApiKey(GetString(Resource.String.ApiKey))
+                .SetApplicationId(GetString(Resource.String.ApplicationId))
+                .SetDatabaseUrl(GetString(Resource.String.DatabaseUrl))
+                .Build();
+            FirebaseApp fa = FirebaseApp.InitializeApp(this, o, Application.PackageName);
+
+            // Configure Google Sign In
+            GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DefaultSignIn)
+                    .RequestIdToken(GetString(Resource.String.ServerClientId))
+                    .RequestId()
+                    .RequestEmail()
+                    .Build();
+
+            // Build our api client
+            mGoogleApiClient = new GoogleApiClient.Builder(this)
+               .EnableAutoManage(this, this)
+               .AddApi(Auth.GOOGLE_SIGN_IN_API, gso)
+               .Build();
+
+            // Get the auth instance so we can add to it
+            mAuth = FirebaseAuth.GetInstance(fa);
+            /*-----firebase----------*/
 
             btnLogin = FindViewById<Button>(Resource.Id.btnLogin);
             txtUsername = FindViewById<EditText>(Resource.Id.txtUsername);
@@ -98,7 +130,18 @@ namespace EasyDemo.Droid
 
         public void OnClick(View v)
         {
-            throw new NotImplementedException();
+            switch (v.Id)
+            {
+                case Resource.Id.btnSignIn: SignIn(); break;
+                case Resource.Id.btnSignOut: SignOut(); break;
+                case Resource.Id.btnRevokeAccess: RevokeAccess(); break;
+                default:
+
+                    // Not handled or unkonwn
+                    Log.Debug(Tag, "OnClick:" + v.Id);
+                    Debugger.Break();
+                    break;
+            }
         }
 
         public void OnComplete(Task task)
@@ -115,5 +158,50 @@ namespace EasyDemo.Droid
         {
             throw new NotImplementedException();
         }
+
+
+        private void SignIn()
+        {
+            Intent signInIntent = Auth.GoogleSignInApi.GetSignInIntent(mGoogleApiClient);
+            StartActivityForResult(signInIntent, RcSignIn);
+        }
+
+        private void SignOut()
+        {
+            // Firebase sign out
+            mAuth.SignOut();
+
+            // Google sign out
+            Auth.GoogleSignInApi.SignOut(mGoogleApiClient)
+                .SetResultCallback(new ResultCallback<IResult>(delegate
+                {
+                    Log.Debug(Tag, "Auth.GoogleSignInApi.SignOut");
+                    UpdateUi();
+                }));
+        }
+
+        private void RevokeAccess()
+        {
+            // Firebase sign out
+            mAuth.SignOut();
+
+            // Google revoke access
+            Auth.GoogleSignInApi.RevokeAccess(mGoogleApiClient)
+                .SetResultCallback(new ResultCallback<IResult>(delegate
+                {
+                    Log.Debug(Tag, "Auth.GoogleSignInApi.RevokeAccess");
+                    UpdateUi();
+                }));
+        }
+        private void UpdateUi(FirebaseUser user = null)
+        {
+            // Check if null so we don't have to rewrite everything twice
+            var b = user != null;
+            //textViewStatus.SetText(b ? user.Email ?? "No Email" : "Signed Out");
+            //textViewDetail.SetText(b ? user.Uid : "");
+            btnSignIn.Visibility = b ? ViewStates.Gone : ViewStates.Visible;
+            btnSignOut.Visibility = b ? ViewStates.Visible : ViewStates.Gone;
+        }
+
     }
 }

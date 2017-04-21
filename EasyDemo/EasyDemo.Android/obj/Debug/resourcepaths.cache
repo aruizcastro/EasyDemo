@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Paths>
+  <AdditionalAndroidResourcePaths>
+    <AdditionalAndroidResourcePath>C:\Users\Horbath\AppData\Local\Xamarin\Xamarin.Firebase.Auth.Common\9.6.1\embedded</AdditionalAndroidResourcePath>
+    <AdditionalAndroidResourcePath>C:\Users\Horbath\AppData\Local\Xamarin\Xamarin.Firebase.Auth\9.6.1\embedded</AdditionalAndroidResourcePath>
+    <AdditionalAndroidResourcePath>C:\Users\Horbath\AppData\Local\Xamarin\Xamarin.Firebase.Auth.Module\9.6.1\embedded</AdditionalAndroidResourcePath>
+    <AdditionalAndroidResourcePath>C:\Users\Horbath\AppData\Local\Xamarin\Xamarin.Firebase.Common\9.6.1\embedded</AdditionalAndroidResourcePath>
+    <AdditionalAndroidResourcePath>C:\Users\Horbath\AppData\Local\Xamarin\Xamarin.GooglePlayServices.Auth.Base\9.6.1\embedded</AdditionalAndroidResourcePath>
+    <AdditionalAndroidResourcePath>C:\Users\Horbath\AppData\Local\Xamarin\Xamarin.GooglePlayServices.Auth\9.6.1\embedded</AdditionalAndroidResourcePath>
+    <AdditionalAndroidResourcePath>C:\Users\Horbath\AppData\Local\Xamarin\Xamarin.GooglePlayServices.Base\9.6.1\embedded</AdditionalAndroidResourcePath>
+    <AdditionalAndroidResourcePath>C:\Users\Horbath\AppData\Local\Xamarin\Xamarin.GooglePlayServices.Basement\9.6.1\embedded</AdditionalAndroidResourcePath>
+    <AdditionalAndroidResourcePath>C:\Users\Horbath\AppData\Local\Xamarin\Xamarin.GooglePlayServices.Identity\9.6.1\embedded</AdditionalAndroidResourcePath>
+    <AdditionalAndroidResourcePath>C:\Users\Horbath\AppData\Local\Xamarin\Xamarin.GooglePlayServices.Iid\9.6.1\embedded</AdditionalAndroidResourcePath>
+    <AdditionalAndroidResourcePath>C:\Users\Horbath\AppData\Local\Xamarin\Xamarin.GooglePlayServices.Tasks\9.6.1\embedded</AdditionalAndroidResourcePath>
+  </AdditionalAndroidResourcePaths>
+  <AdditionalJavaLibraryReferences>
+    <AdditionalJavaLibraryReference>C:\Users\Horbath\AppData\Local\Xamarin\Xamarin.Firebase.Auth.Common\9.6.1\embedded\classes.jar</AdditionalJavaLibraryReference>
+    <AdditionalJavaLibraryReference>C:\Users\Horbath\AppData\Local\Xamarin\Xamarin.Firebase.Auth\9.6.1\embedded\classes.jar</AdditionalJavaLibraryReference>
+    <AdditionalJavaLibraryReference>C:\Users\Horbath\AppData\Local\Xamarin\Xamarin.Firebase.Auth.Module\9.6.1\embedded\classes.jar</AdditionalJavaLibraryReference>
+    <AdditionalJavaLibraryReference>C:\Users\Horbath\AppData\Local\Xamarin\Xamarin.Firebase.Common\9.6.1\embedded\classes.jar</AdditionalJavaLibraryReference>
+    <AdditionalJavaLibraryReference>C:\Users\Horbath\AppData\Local\Xamarin\Xamarin.GooglePlayServices.Auth.Base\9.6.1\embedded\classes.jar</AdditionalJavaLibraryReference>
+    <AdditionalJavaLibraryReference>C:\Users\Horbath\AppData\Local\Xamarin\Xamarin.GooglePlayServices.Auth\9.6.1\embedded\classes.jar</AdditionalJavaLibraryReference>
+    <AdditionalJavaLibraryReference>C:\Users\Horbath\AppData\Local\Xamarin\Xamarin.GooglePlayServices.Base\9.6.1\embedded\classes.jar</AdditionalJavaLibraryReference>
+    <AdditionalJavaLibraryReference>C:\Users\Horbath\AppData\Local\Xamarin\Xamarin.GooglePlayServices.Basement\9.6.1\embedded\classes.jar</AdditionalJavaLibraryReference>
+    <AdditionalJavaLibraryReference>C:\Users\Horbath\AppData\Local\Xamarin\Xamarin.GooglePlayServices.Identity\9.6.1\embedded\classes.jar</AdditionalJavaLibraryReference>
+    <AdditionalJavaLibraryReference>C:\Users\Horbath\AppData\Local\Xamarin\Xamarin.GooglePlayServices.Iid\9.6.1\embedded\classes.jar</AdditionalJavaLibraryReference>
+    <AdditionalJavaLibraryReference>C:\Users\Horbath\AppData\Local\Xamarin\Xamarin.GooglePlayServices.Tasks\9.6.1\embedded\classes.jar</AdditionalJavaLibraryReference>
+  </AdditionalJavaLibraryReferences>
+  <AdditionalNativeLibraryReferences />
+</Paths>
