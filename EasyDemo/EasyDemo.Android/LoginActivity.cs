@@ -49,6 +49,8 @@ namespace EasyDemo.Droid
             SetContentView(Resource.Layout.Login);
             // Call to "wire up" all our controls autoamticlly
             //this.WireUpViews();
+            textViewStatus = FindViewById<TextView>(Resource.Id.textViewStatus);
+            textViewDetail = FindViewById<TextView>(Resource.Id.textViewDetail);
             btnSignIn = FindViewById<Button>(Resource.Id.btnSignIn);
             btnSignOut = FindViewById<Button>(Resource.Id.btnSignOut);
             btnRevokeAccess = FindViewById< Button > (Resource.Id.btnRevokeAccess);
@@ -102,7 +104,74 @@ namespace EasyDemo.Droid
             // Create your application here
         }
 
-    
+        public void OnAuthStateChanged(FirebaseAuth auth)
+        {
+            var user = auth.CurrentUser;
+            Log.Debug(Tag, "onAuthStateChanged:" + (user != null ? "signed_in:" + user.Uid : "signed_out"));
+            UpdateUi(user);
+        }
+
+        protected override void OnStart()
+        {
+            base.OnStart();
+            mAuth.AddAuthStateListener(this);
+        }
+
+        protected override void OnStop()
+        {
+            base.OnStop();
+            mAuth.RemoveAuthStateListener(this);
+        }
+
+        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+        {
+            base.OnActivityResult(requestCode, resultCode, data);
+
+            // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
+            if (requestCode == RcSignIn)
+            {
+                GoogleSignInResult result = Auth.GoogleSignInApi.GetSignInResultFromIntent(data);
+                if (result.IsSuccess)
+                {
+                    // Google Sign In was successful, authenticate with Firebase
+                    var account = result.SignInAccount;
+                    FirebaseAuthWithGoogle(account);
+                }
+                else
+                {
+                    // Google Sign In failed, update UI appropriately
+                    UpdateUi();
+                }
+            }
+        }
+
+        private void FirebaseAuthWithGoogle(GoogleSignInAccount acct)
+        {
+            Log.Debug(Tag, "FirebaseAuthWithGoogle:" + acct.Id);
+            AuthCredential credential = GoogleAuthProvider.GetCredential(acct.IdToken, null);
+            mAuth.SignInWithCredential(credential).AddOnCompleteListener(this, this);
+        }
+
+        public void OnComplete(Task task)
+        {
+            Log.Debug(Tag, "SignInWithCredential:OnComplete:" + task.IsSuccessful);
+
+            // If sign in fails, display a message to the user. If sign in succeeds
+            // the auth state listener will be notified and logic to handle the
+            // signed in user can be handled in the listener.
+            if (!task.IsSuccessful)
+            {
+                Log.Wtf(Tag, "SignInWithCredential", task.Exception);
+                Toast.MakeText(this, "Authentication failed.", ToastLength.Long).Show();
+            }
+        }
+
+        public void OnConnectionFailed(ConnectionResult result)
+        {
+            Log.Debug(Tag, "OnConnectionFailed:" + result);
+            Toast.MakeText(this, "Google Play Services error.", ToastLength.Long).Show();
+        }
+
         private void addData()
         {
             string username = txtUsername.Text;
@@ -144,26 +213,14 @@ namespace EasyDemo.Droid
             }
         }
 
-        public void OnComplete(Task task)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void OnAuthStateChanged(FirebaseAuth auth)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void OnConnectionFailed(ConnectionResult result)
-        {
-            throw new NotImplementedException();
-        }
+        
 
 
         private void SignIn()
         {
             Intent signInIntent = Auth.GoogleSignInApi.GetSignInIntent(mGoogleApiClient);
             StartActivityForResult(signInIntent, RcSignIn);
+            Log.Debug("Ejecutando: ", "Entrada a sign in");
         }
 
         private void SignOut()
@@ -197,8 +254,10 @@ namespace EasyDemo.Droid
         {
             // Check if null so we don't have to rewrite everything twice
             var b = user != null;
+            //Log.Debug("valor de user.Email", user.Email);
             //textViewStatus.SetText(b ? user.Email ?? "No Email" : "Signed Out");
             //textViewDetail.SetText(b ? user.Uid : "");
+            //Log.Debug("Datos","UserEmail="+user.Email+", UserUid="+user.Uid);
             btnSignIn.Visibility = b ? ViewStates.Gone : ViewStates.Visible;
             btnSignOut.Visibility = b ? ViewStates.Visible : ViewStates.Gone;
         }

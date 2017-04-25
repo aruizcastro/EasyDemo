@@ -15,6 +15,9 @@ public class LoginActivity
 	static {
 		__md_methods = 
 			"n_onCreate:(Landroid/os/Bundle;)V:GetOnCreate_Landroid_os_Bundle_Handler\n" +
+			"n_onStart:()V:GetOnStartHandler\n" +
+			"n_onStop:()V:GetOnStopHandler\n" +
+			"n_onActivityResult:(IILandroid/content/Intent;)V:GetOnActivityResult_IILandroid_content_Intent_Handler\n" +
 			"n_onConnectionFailed:(Lcom/google/android/gms/common/ConnectionResult;)V:GetOnConnectionFailed_Lcom_google_android_gms_common_ConnectionResult_Handler:Android.Gms.Common.Apis.GoogleApiClient/IOnConnectionFailedListenerInvoker, Xamarin.GooglePlayServices.Base\n" +
 			"n_onClick:(Landroid/view/View;)V:GetOnClick_Landroid_view_View_Handler:Android.Views.View/IOnClickListenerInvoker, Mono.Android, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null\n" +
 			"n_onComplete:(Lcom/google/android/gms/tasks/Task;)V:GetOnComplete_Lcom_google_android_gms_tasks_Task_Handler:Android.Gms.Tasks.IOnCompleteListenerInvoker, Xamarin.GooglePlayServices.Tasks\n" +
@@ -38,6 +41,30 @@ public class LoginActivity
 	}
 
 	private native void n_onCreate (android.os.Bundle p0);
+
+
+	public void onStart ()
+	{
+		n_onStart ();
+	}
+
+	private native void n_onStart ();
+
+
+	public void onStop ()
+	{
+		n_onStop ();
+	}
+
+	private native void n_onStop ();
+
+
+	public void onActivityResult (int p0, int p1, android.content.Intent p2)
+	{
+		n_onActivityResult (p0, p1, p2);
+	}
+
+	private native void n_onActivityResult (int p0, int p1, android.content.Intent p2);
 
 
 	public void onConnectionFailed (com.google.android.gms.common.ConnectionResult p0)
