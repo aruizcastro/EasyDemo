@@ -17,6 +17,7 @@ using Android.Gms.Auth.Api;
 using Android.Gms.Auth.Api.SignIn;
 using Android.Util;
 using System.Diagnostics;
+using EasyDemo.Droid.Models;
 
 namespace EasyDemo.Droid
 {
@@ -24,6 +25,10 @@ namespace EasyDemo.Droid
     public class LoginActivity : FragmentActivity, GoogleApiClient.IOnConnectionFailedListener,
         View.IOnClickListener, IOnCompleteListener, FirebaseAuth.IAuthStateListener
     {
+        /*-----conexión con el servidor ----*/
+        DataConnection conection;
+        /*-----conexión con el servidor ----*/
+
         private const string Tag = "GoogleLogin";
         private const int RcSignIn = 9001;
 
@@ -47,6 +52,7 @@ namespace EasyDemo.Droid
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Login);
+            new DataConnection(this,"setUser", "AJ", "20");
             // Call to "wire up" all our controls autoamticlly
             //this.WireUpViews();
             textViewStatus = FindViewById<TextView>(Resource.Id.textViewStatus);
