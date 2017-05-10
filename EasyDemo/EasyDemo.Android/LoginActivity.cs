@@ -18,6 +18,7 @@ using Android.Gms.Auth.Api.SignIn;
 using Android.Util;
 using System.Diagnostics;
 using EasyDemo.Droid.Models;
+using System.Collections.Generic;
 
 namespace EasyDemo.Droid
 {
@@ -26,7 +27,13 @@ namespace EasyDemo.Droid
         View.IOnClickListener, IOnCompleteListener, FirebaseAuth.IAuthStateListener
     {
         /*-----conexión con el servidor ----*/
+        
+        ListView listData;
+        ListAdapter listAdapter;
+        List<Users> items;
+        Handler handler = new Handler();
         DataConnection conection;
+        bool runValue = true;
         /*-----conexión con el servidor ----*/
 
         private const string Tag = "GoogleLogin";
@@ -43,7 +50,7 @@ namespace EasyDemo.Droid
         private GoogleApiClient mGoogleApiClient;
         
         Button btnLogin;
-        EditText txtUsername;
+        EditText txtUsername, txtPassword;
         Connection db;
         string conn = "";
         string usr = "";
@@ -52,7 +59,7 @@ namespace EasyDemo.Droid
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Login);
-            new DataConnection(this,"setUser", "AJ", "20");
+            //new DataConnection(this,"setUser", "AJ", "20");
             // Call to "wire up" all our controls autoamticlly
             //this.WireUpViews();
             textViewStatus = FindViewById<TextView>(Resource.Id.textViewStatus);
@@ -93,10 +100,16 @@ namespace EasyDemo.Droid
 
             btnLogin = FindViewById<Button>(Resource.Id.btnLogin);
             txtUsername = FindViewById<EditText>(Resource.Id.txtUsername);
+            txtPassword = FindViewById<EditText>(Resource.Id.txtPassword);
+            listData = FindViewById<ListView>(Resource.Id.listView_Users);
+            btnLogin.Click += BtnLogin_Click;
+
+
+
             db = new Connection(this);
 
 
-            btnLogin.Click += delegate
+            /*btnLogin.Click += delegate
             {
                 var mainActivity = new Intent(this, typeof(MainActivity));
                 addData();
@@ -104,10 +117,33 @@ namespace EasyDemo.Droid
                 mainActivity.PutExtra("status", conn);
                 mainActivity.PutExtra("username", usr);
                 StartActivity(mainActivity);
-            };
+            };*/
 
 
             // Create your application here
+        }
+
+        private void BtnLogin_Click(object sender, EventArgs e)
+        {
+            string name = txtUsername.Text;
+            string age = txtPassword.Text.ToString();
+            if(name == "")
+            {
+                txtUsername.RequestFocus();
+            }else
+            {
+                if (age == "")
+                {
+                    txtPassword.RequestFocus();
+                }
+                else
+                {
+                    new DataConnection(this, "setUser", name, age);
+                    txtUsername.Text = "";
+                    txtPassword.Text = "";
+                }
+            }
+
         }
 
         public void OnAuthStateChanged(FirebaseAuth auth)
