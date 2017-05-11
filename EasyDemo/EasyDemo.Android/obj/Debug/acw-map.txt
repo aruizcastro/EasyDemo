@@ -10,6 +10,10 @@ EasyDemo.Droid.Models.DataConnection/GetAndSet, EasyDemo.Android;md5b4af8e39bd7a
 EasyDemo.Droid.Models.DataConnection+GetAndSet, EasyDemo.Android, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5b4af8e39bd7ae079557c964bbb0efdb2.DataConnection_GetAndSet
 EasyDemo.Droid.Models.DataConnection.GetAndSet;md5b4af8e39bd7ae079557c964bbb0efdb2.DataConnection_GetAndSet
 easydemo.droid.models.DataConnection_GetAndSet;md5b4af8e39bd7ae079557c964bbb0efdb2.DataConnection_GetAndSet
+EasyDemo.Droid.Models.ListAdapter, EasyDemo.Android;md5b4af8e39bd7ae079557c964bbb0efdb2.ListAdapter
+EasyDemo.Droid.Models.ListAdapter, EasyDemo.Android, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5b4af8e39bd7ae079557c964bbb0efdb2.ListAdapter
+EasyDemo.Droid.Models.ListAdapter;md5b4af8e39bd7ae079557c964bbb0efdb2.ListAdapter
+easydemo.droid.models.ListAdapter;md5b4af8e39bd7ae079557c964bbb0efdb2.ListAdapter
 EasyDemo.Droid.Helper.Connection, EasyDemo.Android;md58fbdce9fee45c7ed92821625a3e5ee8e.Connection
 EasyDemo.Droid.Helper.Connection, EasyDemo.Android, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md58fbdce9fee45c7ed92821625a3e5ee8e.Connection
 EasyDemo.Droid.Helper.Connection;md58fbdce9fee45c7ed92821625a3e5ee8e.Connection

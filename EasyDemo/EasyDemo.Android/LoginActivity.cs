@@ -19,6 +19,7 @@ using Android.Util;
 using System.Diagnostics;
 using EasyDemo.Droid.Models;
 using System.Collections.Generic;
+using Java.Lang;
 
 namespace EasyDemo.Droid
 {
@@ -104,6 +105,7 @@ namespace EasyDemo.Droid
             listData = FindViewById<ListView>(Resource.Id.listView_Users);
             btnLogin.Click += BtnLogin_Click;
 
+            setConnection();
 
 
             db = new Connection(this);
@@ -304,5 +306,43 @@ namespace EasyDemo.Droid
             btnSignOut.Visibility = b ? ViewStates.Visible : ViewStates.Gone;
         }
 
+
+
+        private void execute()
+        {
+            int pStatus = 0;
+            new Java.Lang.Thread(new Runnable (()=> {
+                foreach (var data in items)
+                {
+                    items.Remove(data);
+                }
+                while (runValue)
+                {
+                    handler.Post(new Runnable(() =>
+                    {
+                        items = conection.getUsers();
+                        pStatus = items.Count;
+                        if (pStatus > 0)
+                        {
+                            runValue = false;
+                            getUsers();
+                        }
+                    }));
+                }
+                Java.Lang.Thread.Sleep(3000);
+            })).Start();
+        }
+
+        private void getUsers()
+        {
+            listAdapter = new ListAdapter(this, items);
+            listData.Adapter = listAdapter;
+        }
+        private void setConnection() {
+            runValue = true;
+            items = new List<Users>();
+            conection = new DataConnection(this,"getUser","","");
+            execute();
+        }
     }
 }

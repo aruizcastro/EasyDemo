@@ -36,13 +36,16 @@ namespace EasyDemo.Droid.Models
         private static string getData()
         {
             StringBuffer response = null;
-            URL obj = new URL("http://192.168.1.14/easyserver/WebService.php");
+            URL obj = new URL("http://192.168.1.17/easyserver/WebService.php");
             switch (mFunction)
             {
                 case "setUser":
                     data = "function=" + URLEncoder.Encode(mFunction, "UTF-8")
                         + "&name=" + URLEncoder.Encode(mName, "UTF-8")
                         + "&age=" + URLEncoder.Encode(mAge, "UTF-8");
+                    break;
+                case "getUser":
+                    data = "function=" + URLEncoder.Encode(mFunction, "UTF-8");
                     break;
             }
             //creación del objeto de conexión
@@ -100,6 +103,21 @@ namespace EasyDemo.Droid.Models
                             dataUser = json_data.GetString("Insert");
 
                             break;
+                        case "getUser":
+                            useronList = new List<Users>();
+                            JSONArray resultJSON = json_data.GetJSONArray("results");
+                            int count = resultJSON.Length();
+                            for (int i=0;i < count;i++) {
+                                JSONObject jsonNode = resultJSON.GetJSONObject(i);
+                                int Id = Convert.ToInt16(jsonNode.OptString("IdUser").ToString());
+                                string Name = jsonNode.OptString("Name").ToString();
+                                int Age = Convert.ToInt16(jsonNode.OptString("Age").ToString()); ;
+                                useronList.Add(new Users()
+                                {
+                                    Id = Id, Name = Name, Age = Age
+                                });
+                            }
+                            break;
                     }
                 }
             }
@@ -124,6 +142,11 @@ namespace EasyDemo.Droid.Models
                 }
                 return null;
             }
+        }
+
+        public List<Users> getUsers()
+        {
+            return useronList;
         }
 
     }
